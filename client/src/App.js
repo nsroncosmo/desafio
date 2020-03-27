@@ -10,12 +10,11 @@ export default class App extends React.Component {
         super(props);
         this.state = {
             rows:    10,
-            columns: 12,
+            columns: 10,
         };
 
         this.handleRowsChange    = this.handleRowsChange.bind(this);
         this.handleColumnsChange = this.handleColumnsChange.bind(this);
-        this.handleQuestionClick = this.handleQuestionClick.bind(this);
     }
 
     handleRowsChange(e) {
@@ -30,17 +29,12 @@ export default class App extends React.Component {
         })
     }
 
-    handleQuestionClick(e) {
-        e.preventDefault();
-//        $('#question').modal('show');
-    }
-
     render() {
         return (
             <div className="container">
                 <div className="row">
                     <div className="page-header text-center">
-                        <h2>NUVEM DE CINZAS</h2>
+                        <h2>Desafio</h2>
                     </div>
                 </div>
 
@@ -76,9 +70,6 @@ export default class App extends React.Component {
                                             onChange={this.handleColumnsChange}
                                         />
                                     </div>
-                                    <button type="button" className="btn btn-default pull-right" onClick={this.handleQuestionClick}>
-                                       Precisa de ajuda <span className="fa fa-question-circle-o fa-lg"></span>
-                                    </button>
                                 </form>
                             </div>
                         </div>

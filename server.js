@@ -1,17 +1,17 @@
 const express = require('express');
-const kraken  = require('kraken-js');
+//const kraken  = require('kraken-js');
 
 const app     = express();
-const porta   = process.env.PORT || 8088;
+const port    = process.env.PORT || 8088;
 
-var options = {
-  onconfig: (config,next) => next(null,config)
-}
+//var options = {
+//  onconfig: (config,next) => next(null,config)
+//}
 
-app.use( kraken(options) );
+//app.use( kraken(options) );
 
 app.get('/api/mensagem', (req, res) => {
-  res.send({ express: 'Lave sua bunda suja' });
+  res.send({ express: 'To funfundo' });
 });
 
-app.listen(porta, () => console.log(`Servidor ativo na porta ${porta}`));
+ app.listen(port, () => console.log(`Servidor ativo na port ${port}`));
