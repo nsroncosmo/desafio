@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
+import Controller from './components/Controller';
+
+
 
 export default class App extends Component {
   state = {
-    response: ''
+    response: 'Tá vazio ainda'
   };
 
+  /*
   componentDidMount() {
     this.callApi()
       .then(res => this.setState({ response: res.express }))
@@ -20,12 +24,14 @@ export default class App extends Component {
 
     return body;
   };
-
+*/
   render() {
     return (
-      <div className="App">
-        <p className="App-intro">{this.state.response}</p>
-      </div>
+            <Controller />
+        
+//      <div className="App">
+//        <p className="App-intro">{this.state.response}</p>
+//      </div>
     );
   }
 }
