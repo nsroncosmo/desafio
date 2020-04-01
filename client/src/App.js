@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
 import Controller from './components/Controller';
-
+//import PropTypes from 'prop-types';
 
 export default function App() {
-//  const [rows,setRows] = useState(10);
-//  const [cols,setCols] = useState(10);
-  
 
 const [dados,ctrlDados] = useState({
     dimensions: {
@@ -28,43 +25,12 @@ const [dados,ctrlDados] = useState({
   return ( <Controller data={dados} ctrl={ctrlDados} /> )
 }
 
-
-/*
-const dados = {
-  terrain: {
-    grid: [],
-  },
-  dimensions: {
-    width: 10,
-    height: 10,
-  },
-  elements:{
-    Airports: 3,
-    Clouds: 4,
-  },
-  info:{
-    FDay: "?",
-    LDay: "?",
-    Msg: "Clique em [botão] para iniciar os cálculos",
-  },
-};
-
-export default class App extends Component {
-constructor(){
-  super();
-  this.state ={
-    daMap:[],
-  }
+App.propTypes = {
+//dados: PropTypes.array.isRequired,
+//ctrlDados: PropTypes.object.isRequired
 }
 
-  render() {
-
-    return (
-            <Controller terrain={this.state.daMap}
-                        dimensions={dados.dimensions}
-                        elements={dados.elements}
-                        info={dados.info}/>
-    );
-  }
+App.defaultProps = {
+//  dados: {},
+//  ctrlDados: null
 }
-*/
