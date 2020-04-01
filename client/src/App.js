@@ -1,37 +1,70 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Controller from './components/Controller';
 
 
+export default function App() {
+//  const [rows,setRows] = useState(10);
+//  const [cols,setCols] = useState(10);
+  
+
+const [dados,ctrlDados] = useState({
+    dimensions: {
+      width: 10,
+      height: 10,
+    },
+    Elements:{
+      Airports: 3,
+      Clouds: 4,
+    },
+    Info:{
+      FDay: "?",
+      LDay: "?",
+      Msg: "Clique em [botão] para iniciar os cálculos",
+    },
+  });
+  
+
+  return ( <Controller data={dados} ctrl={ctrlDados} /> )
+}
+
+
+/*
+const dados = {
+  terrain: {
+    grid: [],
+  },
+  dimensions: {
+    width: 10,
+    height: 10,
+  },
+  elements:{
+    Airports: 3,
+    Clouds: 4,
+  },
+  info:{
+    FDay: "?",
+    LDay: "?",
+    Msg: "Clique em [botão] para iniciar os cálculos",
+  },
+};
 
 export default class App extends Component {
-  state = {
-    response: 'Tá vazio ainda'
-  };
-
-  /*
-  componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err));
+constructor(){
+  super();
+  this.state ={
+    daMap:[],
   }
+}
 
-  callApi = async () => {
-    const response = await fetch('/api/mensagem');
-    const body = await response.json();
-
-    if (response.status !== 200) throw Error(body.message);
-
-    return body;
-  };
-*/
   render() {
+
     return (
-            <Controller />
-        
-//      <div className="App">
-//        <p className="App-intro">{this.state.response}</p>
-//      </div>
+            <Controller terrain={this.state.daMap}
+                        dimensions={dados.dimensions}
+                        elements={dados.elements}
+                        info={dados.info}/>
     );
   }
 }
+*/

@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export default function Botoneira() {
 	const estilo = {"float": "left","marginRight": "33px" };
 

@@ -1,7 +1,7 @@
 import React from 'react';
-const { guid  } = require('../utils/utils');
+const { guid, cell } = require('../utils/utils');
 
-
+/*
 let mapaInicio = [
 	[0,0,0,0,0,0,9],
 	[0,0,0,0,3,0,9],
@@ -9,9 +9,10 @@ let mapaInicio = [
 	[0,1,0,1,0,3,9],
 	[0,0,0,0,0,0,9]
 ];
+
 //<div className={`Cell-${x}`} key={`${x}-${y}-${guid()}`}> <p>{ x }</p> </div>
 
-/*
+
 export default function Map() {
   return (
 		<table>
@@ -19,7 +20,7 @@ export default function Map() {
       {Object.keys(mapaInicio).map(keyOuter => {
         return Object.keys(mapaInicio[keyOuter]).map(keyInner => {
           return (
-            <td className={`Cell-${mapaInicio[keyOuter][keyInner]gvc}`} key={`${keyInner}-${keyOuter}`}>{mapaInicio[keyOuter][keyInner]}</td>
+            <div className={`Cell-${mapaInicio[keyOuter][keyInner]}`} key={`${keyInner}-${keyOuter}`}>{mapaInicio[keyOuter][keyInner]}</div>
           );
         });
       })}
@@ -39,9 +40,17 @@ export default function Map() {
 //<div className={`Cell-${x}`} key={`${x}-${y}-${guid()}`}> <p>{ x }</p> </div>
 
 
+export default function Map() {
+	/*
+export default class Maps extends Component {
+constructor(){
+	super();
+	this.state ={
+		daGrid: this.props.daMap
+	}
+}
 
-export default function Maps() {
-
+*/
 	let mapaInicio = [
 		[0,0,0,0,0,0,0],
 		[0,0,0,0,3,0,0],
@@ -59,13 +68,8 @@ export default function Maps() {
 		})
 	}
 
-	function cell (row){
-			console.log(typeof(row));
-			return (
-				<div> {row} </div>
-					);
-	}
-			
+//render(){
+
 	return (
 		<>
 		{mapaInicio.map( (x,y) => {
@@ -76,6 +80,6 @@ export default function Maps() {
 		</>
 	)
 
+//}
+
 }
-
-
