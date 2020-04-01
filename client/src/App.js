@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import Controller from './components/Controller';
 //import PropTypes from 'prop-types';
 
 export default function App() {
 
-const [dados,ctrlDados] = useState({
+const dados = {//[dados,ctrlDados] = useState({
     dimensions: {
       width: 10,
       height: 10,
     },
-    Elements:{
-      Airports: 3,
-      Clouds: 4,
+    elements:{
+      airports: 3,
+      clouds: 4,
     },
-    Info:{
-      FDay: "?",
-      LDay: "?",
-      Msg: "Clique em [botão] para iniciar os cálculos",
+    info:{
+      fDay: "?",
+      lDay: "?",
+      dMsg: "Clique em [botão] para iniciar os cálculos",
     },
-  });
+  }/*)*/;
   
 
-  return ( <Controller data={dados} ctrl={ctrlDados} /> )
+  return ( <Controller data={dados} /*ctrl={ctrlDados}*/ /> )
 }
 
 App.propTypes = {

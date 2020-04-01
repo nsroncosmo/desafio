@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Botoneira from '../components/Botoneira';
 import Fundo from '../components/Fundo';
 import Navbar from '../components/Layout/Navbar';
@@ -13,20 +13,12 @@ export default function Controller(props){
 
 //render() {
 	return (
-		<div>
-			<div>
+		<Fragment>
 				<Navbar />
-			</div>
-			<div>
-				<Botoneira />
-			</div>
-			<div>
+				<Botoneira data={props.data}/>
 				<Map />
-			</div>
-			<div>
 				<Fundo />
-			</div>
-		</div>
+		</Fragment>
 	)
 //}
 }

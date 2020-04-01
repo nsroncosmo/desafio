@@ -421,15 +421,15 @@ table th {
   cursor: crosshair;
 }
 .Cell-1 {
-  background-color: gray;
-  color: gray;
+  background-color: cyan;
+  color: cyan;
   border: 'none';
   padding: 8px;
   cursor: cell;
 }
 .Cell-2 {
-  background-color: white;
-  color: white;
+  background-color: gray;
+  color: gray;
   border: 'none';
   padding: 8px;
   cursor: alias;
