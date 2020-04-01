@@ -15,7 +15,7 @@ export default function Controller(props){
 	return (
 		<div>
 			<div>
-				<Navbar dados={props}/>
+				<Navbar />
 			</div>
 			<div>
 				<Botoneira />

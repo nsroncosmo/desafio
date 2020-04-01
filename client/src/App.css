@@ -413,42 +413,31 @@ table th {
   }
 }
 
-
 .Cell-0 {
   background-color: green;
-  height: 30px;
-  width: 30px;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  color: white;
+  color: green;
+  border: 'none';
+  padding: 8px;
+  cursor: crosshair;
 }
-
 .Cell-1 {
   background-color: gray;
-  height: 30px;
-  width: 30px;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  color: white;
+  color: gray;
+  border: 'none';
+  padding: 8px;
+  cursor: cell;
 }
-
 .Cell-2 {
   background-color: white;
-  height: 30px;
-  width: 30px;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
   color: white;
+  border: 'none';
+  padding: 8px;
+  cursor: alias;
 }
 .Cell-3 {
-  background-color: yellow;
-  height: 30px;
-  width: 30px;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  color: white;
+  background-color: red;
+  color: red;
+  border: 'none';
+  padding: 8px;
+  cursor: copy;
 }

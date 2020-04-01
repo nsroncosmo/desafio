@@ -1,5 +1,6 @@
 import React from 'react';
-const { guid, cell } = require('../utils/utils');
+import Cell from '../components/Cell';
+//const { guid, cell } = require('../utils/utils');
 
 /*
 let mapaInicio = [
@@ -55,10 +56,11 @@ constructor(){
 		[0,0,0,0,0,0,0],
 		[0,0,0,0,3,0,0],
 		[1,0,2,0,0,0,0],
-		[0,1,0,1,0,4,0],
+		[0,1,0,1,0,3,0],
 		[0,0,0,0,0,0,0]
 	];
 
+/*
 	function cXell (row){
 		let cols = row
 		cols.map( (v) => {
@@ -67,14 +69,14 @@ constructor(){
 			);
 		})
 	}
-
+*/
 //render(){
 
 	return (
 		<>
 		{mapaInicio.map( (x,y) => {
 			return (
-				<div key={`${x}-${y}-${guid()}`}> {cell(x)} </div>
+				<div key={`${x}-${y}}`}> <Cell row={x} tmp={y}/> </div>
 			);
 		})}
 		</>

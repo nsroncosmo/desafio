@@ -13,8 +13,8 @@ const Navbar = ({icon, title}) => {
 }
 
 Navbar.defaultProps = {
-	title: "Aeroporto Mantos DuBom",
-	icon: "fas fa-plane",
+	title: "Secretaria de Controle de Aeroportos",
+	icon: "fab fa-github", //fas fa-plane
 }
 
 Navbar.propTypes = {
