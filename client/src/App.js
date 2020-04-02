@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Controller from './components/Controller';
+import Navbar from './components/Layout/Navbar';
+import About from './components/pages/About';
 //import PropTypes from 'prop-types';
 
 export default function App() {
-
-const dados = {//[dados,ctrlDados] = useState({
+  
+  const dados = {//[dados,ctrlDados] = useState({
     dimensions: {
       width: 10,
       height: 10,
@@ -15,14 +18,26 @@ const dados = {//[dados,ctrlDados] = useState({
       clouds: 4,
     },
     info:{
-      fDay: "?",
-      lDay: "?",
-      dMsg: "Clique em [botão] para iniciar os cálculos",
+      fDay: "",
+      lDay: "",
+      dMsg: "Clique no botão Projetar para iniciar",
     },
   }/*)*/;
   
 
-  return ( <Controller data={dados} /*ctrl={ctrlDados}*/ /> )
+  return ( 
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" render = {props=>(
+          <Fragment>
+            <Controller data={dados} /*ctrl={ctrlDados}*/ /> )
+          </Fragment>
+      )} />
+      <Route exect path='/about' component={About}/>
+      </Switch>
+    </Router>
+    )
 }
 
 App.propTypes = {

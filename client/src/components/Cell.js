@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 
-const Cell = (props) => {
+const Cell = ({ row, tmp }) => {
 
 	return (
 		<Fragment>
-		{props.row.map( y => {
+		{row.map( (y,z) => {
 			return (
-				<i className={`Cell-${y}`}>M</i>
+				<i key={`${tmp}${y}${z}`} className={`Cell-${y}`}>M</i>
 				);
 		})}
 		</Fragment>
