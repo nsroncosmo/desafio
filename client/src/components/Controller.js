@@ -26,6 +26,7 @@ export default function Controller(props){
 				<div className="container">
 					<Alert alert={alert} />
 					<Botoneira
+						getMap={props.getMap}
 						showAlert={showAlert}
 						data={props.data}
 						/>

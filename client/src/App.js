@@ -18,6 +18,10 @@ export default function App() {
       clouds: 4,
     },
     minValues: [ 10, 10, 3, 4],
+    isLoading: false,
+    daMap: {
+      mapGrid: null,
+    },
     info:{
       fDay: "",
       lDay: "",
@@ -25,6 +29,41 @@ export default function App() {
     },
   }/*)*/;
   
+  //$ ```curl -X POST localhost:3000/api/map -d "w=10&c=10&a=3&c=4"```
+  const fetchMap = async () => { 
+    const res = await fetch("/api/map", { // Eu estou evitando usar axios, mas preferi mante o máximo de simplicidade e sem libs de terceiros
+      method: 'POST',
+      headers: new Headers({ 'Content-Type': 'application/x-www-form-urlencoded', }),
+      body:   `w=${dados.dimensions.width}
+              &h=${dados.dimensions.heith}
+              &a=${dados.elements.airports}
+              &c=${dados.elements.clouds}`
+
+    })
+      dados.daMap.mapGrid = res;
+  }
+
+
+//  const fetchMap_OLD = async () => {
+//		console.log("[APPS] dentro da rotina de fetch")
+//    /*const res = await*/ fetch("/api/map", { // Eu estou evitando usar axios, mas preferi mante o máximo de simplicidade e sem libs de terceiros
+//      method: 'POST',
+//      headers: new Headers({ 'Content-Type': 'application/x-www-form-urlencoded', }),
+//      body:   `w=${dados.dimensions.width}
+//              &h=${dados.dimensions.heith}
+//              &a=${dados.elements.airports}
+//              &c=${dados.elements.clouds}`
+//
+//    })
+//    .then((response) => response.text())
+//    .then((responseText) => {
+//      console.log("Q?",responseText);
+//    })
+//    .catch((error) => {
+//        console.error(error);
+//    });
+////*/
+//  } 
 
   return ( 
     <Router>
@@ -32,7 +71,7 @@ export default function App() {
       <Switch>
         <Route exact path="/" render = {props=>(
           <Fragment>
-            <Controller data={dados} /*ctrl={ctrlDados}*/ /> )
+            <Controller data={dados} getMap={fetchMap}/*ctrl={ctrlDados}*/ /> )
           </Fragment>
       )} />
       <Route exect path='/about' component={About}/>

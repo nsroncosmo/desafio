@@ -13,7 +13,6 @@ let mapaInit;
 //var options = {
 //  onconfig: (config,next) => next(null,config)
 //}
-
 //app.use( kraken(options) );
 
 app.get('/api/test', (req, res) => {
@@ -23,16 +22,16 @@ app.get('/api/test', (req, res) => {
      });
 });
 
-app.post('/api/map', (req, res) => {
-  const {r: rows, c: cols, s: sat} = req.body;
+app.post('/api/map/', (req, res) => {
+  const {w: cols, h: rows, a: ports, c: clouds} = req.body;
 
-  mapaInit = createMap( cols, rows, sat );
+  mapaInit = createMap( cols, rows, ports, clouds );
 
   console.log('%c Mapping', 'color: green; font-weight: bold');
   console.table({cols, rows, sat});
 
   res.json( mapaInit );
-//  console.table(mapaInit);
+  console.table(mapaInit);
 });
 
 app.post('/api/calc', (req, res) => {

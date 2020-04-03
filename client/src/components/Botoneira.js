@@ -4,7 +4,7 @@ import React, { useReducer } from 'react';
 export default function Botoneira(props) {
 	const estilo = {"float": "left","marginRight": "33px" };
 	const btnInput = {"fontSize": "14px", "width": "30px", "height": "22px", "textAlign": "center"}
-	const { /*dimensions, elements,*/ minValues, info } = props.data
+	const { /*dimensions, elements,*/ minValues, info, daMap } = props.data
 
 	const [dataInput, setDataInput] = useReducer(  // Pois 'useState' explicito é para os fracos! kkkkk
     (state, newState) => ({...state, ...newState}),
@@ -38,7 +38,13 @@ export default function Botoneira(props) {
 			props.showAlert(error,'light');
 			return;
 		}
-		
+	
+		console.log("[BOTONEIRA] vai chamar o lance do mapa")
+
+		props.getMap();
+
+		console.table('[BOTONEIRA]',daMap.mapGrid);
+
 	}
 
 	return (
