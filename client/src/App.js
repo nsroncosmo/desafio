@@ -17,6 +17,7 @@ export default function App() {
       airports: 3,
       clouds: 4,
     },
+    minValues: [ 10, 10, 3, 4],
     info:{
       fDay: "",
       lDay: "",

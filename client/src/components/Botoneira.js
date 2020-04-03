@@ -1,31 +1,44 @@
 import React, { useReducer } from 'react';
+//NOTA: Sim, eu sei que preciso melhorar minhas habilidades de desenho no Frontend
 
 export default function Botoneira(props) {
 	const estilo = {"float": "left","marginRight": "33px" };
-	const btnInput = {"width": "45px", "textAlign": "center"}
-	const { /*dimensions, elements,*/ info } = props.data
+	const btnInput = {"fontSize": "14px", "width": "30px", "height": "22px", "textAlign": "center"}
+	const { /*dimensions, elements,*/ minValues, info } = props.data
 
-	const [dataInput, setDataInput] = useReducer(
+	const [dataInput, setDataInput] = useReducer(  // Pois 'useState' explicito é para os fracos! kkkkk
     (state, newState) => ({...state, ...newState}),
     {
-    width:    props.data.dimensions.width,
-    height:   props.data.dimensions.height,
-		airports: props.data.elements.airports,
-		clouds:   props.data.elements.clouds,
+	    largura:    props.data.dimensions.width, // Não 'destruturei' para deixar a leitura mais clara
+  	  altura:     props.data.dimensions.height,
+			aeroportos: props.data.elements.airports,
+			nuvens:     props.data.elements.clouds,
 		}
 	);
 	
 	const handleChange = evt => {
-		setDataInput({[evt.target.name]: evt.target.value});
+		setDataInput({[evt.target.name]: parseInt(evt.target.value)});
 	}
 
 	const onSubmit = e => {
 		e.preventDefault();
-//		if(text===''){
-//			props.setAlert('Verfique o valor entrado','light');
-//		}else{
-//			console.log('OK!');
-//		}
+	//console.table(minValues)
+
+		let error='';
+		Object.values(dataInput).forEach( (val,pos) =>{
+	//console.log( pos, minValues[pos], val )
+			if( minValues[pos] > val ){ // Não acumula devido ao tamanho da janela de exibição do alert
+				error /*+*/= `O campo '${Object.entries(dataInput)[pos][0]}' tem como valor mínimo aceito ${minValues[pos]}.` 
+			}
+		});
+
+	//console.log(`error [${error}]`,error.length)
+	if (error.length > 0 ){
+	//console.log(`error [${error}]`)
+			props.showAlert(error,'light');
+			return;
+		}
+		
 	}
 
 	return (
@@ -34,15 +47,19 @@ export default function Botoneira(props) {
 			<div style ={estilo}>
 				<h4>Dimensões</h4>
 				<div>
-					<p>Altura:     <input style={btnInput} onChange={handleChange} type="text" name="width"   value={dataInput.height}/></p>
-					<p>Largura:    <input style={btnInput} onChange={handleChange} type="text" name="height"  value={dataInput.width}/></p>
+					<p>Altura:     <input style={btnInput} onChange={handleChange}
+					type="text" name="largura"    value={dataInput.largura}/></p>
+					<p>Largura:    <input style={btnInput} onChange={handleChange}
+					 type="text" name="altura"     value={dataInput.altura}/></p>
 				</div>
 			</div>
 			<div style ={estilo}>
 				<h4>Elementos</h4>
 				<div>
-					<p>Aeroportos: <input style={btnInput} onChange={handleChange} type="text" name="airports" value={dataInput.airports}/></p>
-					<p>Nuvens:     <input style={btnInput} onChange={handleChange} type="text" name="clouds"   value={dataInput.clouds}/></p>
+					<p>Aeroportos: <input style={btnInput} onChange={handleChange}
+					type="text" name="aeroportos" value={dataInput.aeroportos}/></p>
+					<p>Nuvens:     <input style={btnInput} onChange={handleChange}
+					type="text" name="nuvens"     value={dataInput.nuvens}/></p>
 				</div>
 			</div>
 			<div style ={estilo}>
@@ -60,10 +77,4 @@ export default function Botoneira(props) {
 			</div>
 		</form>
 	)
-
-/*
-					<p>Altura: <input style={btnInput} value={text} onChange={onChange} type="text" name="width" placeholder={dimensions.height}/></p>
-					<p>Largura: <input style={btnInput} value={text} onChange={onChange} type="text" name="width" placeholder={dimensions.width}/></p>
-*/
-
 }

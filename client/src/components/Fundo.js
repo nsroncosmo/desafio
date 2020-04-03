@@ -5,15 +5,13 @@ export default function Fundo() {
 	return (
 		<nav className="text-center">
 
-		<p>Ferramenta para prevenção de catástrofes</p>
+		<h2>Legenda</h2>
 		<span></span>
 		<div className="text-left">
-			<h4>Legendas:</h4>
-			<span></span>
-			<p><i className='Cell-0'>M</i> Terreno vazio</p>
-			<p><i className='Cell-1'>M</i> Aeroporto</p>
-			<p><i className='Cell-2'>M</i> Nuvem de fumaça vulcânica</p>
-			<p><i className='Cell-3'>M</i> Nuvem sobre aeroporto</p>
+			<p><i className='Cell-0 fas fa-cloud' /> Área comum</p>
+			<p><i className='Cell-1 fas fa-plane-departure' /> Aeroporto</p>
+			<p><i className='Cell-2 fas fa-cloud' /> Nuvem de fumaça vulcânica</p>
+			<p><i className='Cell-3 fas fa-cloud' /> Nuvem sobre aeroporto</p>
 		</div>
 
 		</nav>

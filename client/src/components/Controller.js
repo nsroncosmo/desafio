@@ -8,13 +8,17 @@ import Map from './Map';
 
 
 export default function Controller(props){
-	const [alert,setAlert] = useState(null);
+  let [alert,setAlert] = useState(null);
 	//	callAPI();
 	
-//	setAlert = (msg,type) =>{
-//		alert= {msg,type}
-//		setTimeout( () =>  )
-//	}
+	const showAlert = (msg,type) => {
+//console.log('[setAlert]', `msg [${msg}]`, `type [${type}]`)
+		setAlert( alert = { msg, type } );
+		setTimeout( () => {
+			setAlert( alert = null );
+//console.log('Alerta em 5 segundos')
+		}, 5000 );
+	}
 
 //render() {
 	return (
@@ -22,7 +26,7 @@ export default function Controller(props){
 				<div className="container">
 					<Alert alert={alert} />
 					<Botoneira
-						setAlert={setAlert}
+						showAlert={showAlert}
 						data={props.data}
 						/>
 				</div>

@@ -7,7 +7,7 @@ const Navbar = ({icon, title}) => {
 	return (
 		<nav className='navbar bg-primary'>
 			<h1>
-				<i className="{icon}" /> {title}
+				<i className={icon} /> {title}
 			</h1>
 			<ul>
 				<li>
@@ -22,8 +22,8 @@ const Navbar = ({icon, title}) => {
 }
 
 Navbar.defaultProps = {
-	title: "Secretaria de Controle de Aeroportos",
-	icon: "fas fa-plane", //fab fa-github
+	title: "Secretaria de Prevenção de Catástrofes",
+	icon: "fas fa-vector-square", //fab fa-github fas fa-plane 
 }
 
 Navbar.propTypes = {
